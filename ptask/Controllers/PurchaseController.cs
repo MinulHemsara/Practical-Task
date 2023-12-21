@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ptask.Data;
 using ptask.Models;
 using static ptask.Models.PurchaseRequest;
 
@@ -7,6 +8,14 @@ namespace ptask.Controllers
     public class PurchaseController : Controller
     {
         private static List<PurchaseRequest> purchaseRequests = new List<PurchaseRequest>();
+        private readonly AppDbContext _context;
+
+        public PurchaseController(AppDbContext context)
+        {
+            _context = context;
+        }
+
+
 
         public IActionResult Create()
         {
@@ -16,7 +25,13 @@ namespace ptask.Controllers
         [HttpPost]
         public ActionResult Create(PurchaseRequest purchaseRequest)
         {
-  
+            if (ModelState.IsValid)
+            {
+                _context.PurchaseRequests.Add(purchaseRequest);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
             return View(purchaseRequest);
         }
 

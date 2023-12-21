@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ptask.Models;
-using System.Web.Mvc;
-
 
 namespace ptask.Controllers
 {
@@ -17,7 +15,7 @@ namespace ptask.Controllers
             if (IsValidUser(model))
             {
                 
-                Session["User"] = model.Username;
+                //Session["User"] = model.Username;
 
                 return RedirectToAction("Index", "Purchase");
             }

@@ -1,4 +1,6 @@
-﻿namespace ptask.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ptask.Models
 {
     public enum ApprovalStatus
     {
@@ -8,9 +10,9 @@
     }
     public class PurchaseRequest
     {
-       
 
 
+        [Key]
         public int PurchaseRequestNumber { get; set; }
         public string ItemCode { get; set; }
         public int ItemQuantity { get; set; }
