@@ -15,7 +15,11 @@ namespace ptask.Controllers
             _context = context;
         }
 
-
+        public IActionResult Index()
+        {
+            IEnumerable<PurchaseRequest> objPurchaseRequests = _context.PurchaseRequests;
+            return View(objPurchaseRequests);
+        }
 
         public IActionResult Create()
         {
@@ -29,7 +33,20 @@ namespace ptask.Controllers
             {
                 _context.PurchaseRequests.Add(purchaseRequest);
                 _context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Display", new { id = purchaseRequest.PurchaseRequestNumber });
+
+            }
+
+            return View(purchaseRequest);
+        }
+
+        [HttpGet]
+        public IActionResult Display(int id)
+        {
+            var purchaseRequest = _context.PurchaseRequests.Find(id);
+            if (purchaseRequest == null)
+            {
+                return NotFound();
             }
 
             return View(purchaseRequest);

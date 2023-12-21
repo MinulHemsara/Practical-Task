@@ -1,7 +1,7 @@
 ﻿
 @model PurchaseRequest
 
-<form asp-action="Create">
+<form asp-action="Create" method="post">
     <div>
         <label asp-for="ItemCode"></label>
         <input asp-for="ItemCode" />
@@ -22,14 +22,15 @@
         <input type="submit" value="Submit" class="btn btn-primary" />
     </div>
 </form>
+
 <script>
-   
     function calculateTotalCost() {
         var itemQuantity = parseFloat(document.getElementById("ItemQuantity").value);
         var itemCost = parseFloat(document.getElementById("ItemCost").value);
         var totalCost = itemQuantity * itemCost;
         document.getElementById("totalCost").value = isNaN(totalCost) ? '' : totalCost.toFixed(2);
     }
+
     document.getElementById("ItemQuantity").addEventListener("input", calculateTotalCost);
     document.getElementById("ItemCost").addEventListener("input", calculateTotalCost);
     document.addEventListener("DOMContentLoaded", calculateTotalCost);

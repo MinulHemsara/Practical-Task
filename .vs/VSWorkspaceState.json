@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\ptask",
+    "\\ptask\\Controllers",
+    "\\ptask\\Migrations",
+    "\\ptask\\Models",
+    "\\ptask\\obj",
+    "\\ptask\\obj\\Release",
+    "\\ptask\\Views",
+    "\\ptask\\Views\\Home",
+    "\\ptask\\Views\\Purchase"
+  ],
+  "SelectedNode": "\\ptask\\Views\\Purchase\\Display.cshtml",
+  "PreviewInSolutionExplorer": false
+}
