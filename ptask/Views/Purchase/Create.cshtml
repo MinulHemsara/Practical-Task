@@ -1,0 +1,42 @@
+﻿@model PurchaseRequest
+
+@{
+    ViewBag.Title = "Create Purchase Request";
+}
+
+<h2>Create Purchase Request</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PurchaseRequestNumber)
+        @Html.DisplayFor(model => model.PurchaseRequestNumber)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ItemCode)
+        @Html.TextBoxFor(model => model.ItemCode, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ItemQuantity)
+        @Html.TextBoxFor(model => model.ItemQuantity, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ItemCost)
+        @Html.TextBoxFor(model => model.ItemCost, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TotalCost)
+        @Html.DisplayFor(model => model.TotalCost, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-primary" />
+    </div>
+}
+
