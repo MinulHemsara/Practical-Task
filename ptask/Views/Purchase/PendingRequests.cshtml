@@ -1,0 +1,31 @@
+﻿@model List<PurchaseRequest>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Item Code</th>
+                <th>Item Quantity</th>
+                <th>Item Cost</th>
+                <th>Total Cost</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var request in Model)
+        {
+            <tr>
+                <td>@request.ItemCode</td>
+                <td>@request.ItemQuantity</td>
+                <td>@request.ItemCost</td>
+                <td>@request.TotalCost</td>
+                <td>
+                    <form asp-controller="Purchase" asp-action="Approve" method="post">
+                        <input type="hidden" name="purchaseRequestId" value="@request.PurchaseRequestNumber" />
+                        <button type="submit" name="approval" value="approve">Approve</button>
+                        <button type="submit" name="approval" value="disapprove">Disapprove</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>

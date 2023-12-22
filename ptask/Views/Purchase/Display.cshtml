@@ -1,28 +1,5 @@
 ﻿@model PurchaseRequest
 
-@*@{
-    ViewBag.Title = "Display Purchase Request";
-}
-
-<h2>Purchase Request Details</h2>
-
-<dl class="dl-horizontal">
-    <dt>Purchase Request Number</dt>
-    <dd>@Html.DisplayFor(model => model.PurchaseRequestNumber)</dd>
-
-    <dt>Item Code</dt>
-    <dd>@Html.DisplayFor(model => model.ItemCode)</dd>
-
-    <dt>Item Quantity</dt>
-    <dd>@Html.DisplayFor(model => model.ItemQuantity)</dd>
-
-    <dt>Item Cost</dt>
-    <dd>@Html.DisplayFor(model => model.ItemCost)</dd>
-
-    <dt>Total Cost</dt>
-    <dd>@Html.DisplayFor(model => model.TotalCost)</dd>
-</dl>*@
-
 @{
     ViewBag.Title = "Purchase Request Details";
 }
@@ -53,5 +30,5 @@
 </table>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Create">Back to List</a>
 </div
